@@ -1,0 +1,40 @@
+kind: ZarfPackageConfig
+metadata:
+  name: podinfos
+  description: "Podinfos"
+  version: "0.0.1"
+  url: https://github.com/stefanprodan/podinfo
+  image: https://raw.githubusercontent.com/stefanprodan/podinfo/gh-pages/screens/podinfo-ui-v3.png
+  architecture: amd64
+
+components:
+  - name: k8s-manifests
+    required: true
+    manifests:
+      - name: podinfo-k8s-manifests
+        files:
+          - k8s-manifests/podinfo-k8s-manifests.yaml
+  - name: podinfo-chart
+    required: true
+    charts:
+      - name: podinfo
+        version: 6.3.6
+        namespace: podinfo
+        releaseName: podinfo
+        url: oci://ghcr.io/stefanprodan/charts/podinfo
+        valuesFiles:
+        - values/podinfo-values.yaml
+    images:
+      - "ghcr.io/stefanprodan/podinfo:6.3.6"
+  - name: podinfo-too-chart
+    required: true
+    charts:
+      - name: podinfo-too
+        version: 6.3.6
+        namespace: podinfo-too
+        releaseName: podinfo-too
+        url: oci://ghcr.io/stefanprodan/charts/podinfo
+        valuesFiles:
+        - values/podinfo-too-values.yaml
+    images:
+      - "ghcr.io/stefanprodan/podinfo:6.3.6"
