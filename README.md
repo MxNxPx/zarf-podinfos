@@ -25,9 +25,6 @@ kubectl -n podinfo-too create secret tls podinfo-tls-secret --cert PATH-TO-CERT-
 ## package and deploy
 
 ```bash
-# do this not so great thing (will fix later)
-kubectl delete cpol restrict-image-registries
-
 # create zarf package
 zarf package create --architecture amd64 . --confirm
 
