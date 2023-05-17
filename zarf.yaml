@@ -7,6 +7,11 @@ metadata:
   image: https://raw.githubusercontent.com/stefanprodan/podinfo/gh-pages/screens/podinfo-ui-v3.png
   architecture: amd64
 
+variables:
+- name: PODINFO_TOO_COLOR
+  default: "#000000"
+  prompt: false
+
 components:
   - name: k8s-manifests
     required: true
