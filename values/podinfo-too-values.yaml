@@ -15,3 +15,6 @@ securityContext:
 tls:
   enabled: true
   secretName: podinfo-tls-secret
+
+ui:
+  color: '#000000'
