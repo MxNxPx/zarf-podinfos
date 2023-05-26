@@ -17,3 +17,5 @@ jobs:
         with:
           release-type: simple
           package-name: zarf-podinfos
+          extra-files: |
+            zarf.yaml
