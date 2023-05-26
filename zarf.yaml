@@ -10,7 +10,7 @@ metadata:
   architecture: amd64
 
 variables:
-- name: PODINFO_TOO_COLOR
+- name: PODINFO_TOO_UI_COLOR
   default: "#000000"
   prompt: false
 
