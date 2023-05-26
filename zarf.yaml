@@ -19,6 +19,15 @@ components:
       - name: podinfo-k8s-manifests
         files:
           - k8s-manifests/podinfo-k8s-manifests.yaml
+    actions:
+      onDeploy:
+        after: &ondeploy-after-k8s-info
+          - name: get-pods
+            cmd: |
+              echo "[*] k8s info";
+              ./zarf tools kubectl get deploy -A;
+              ./zarf tools kubectl get po -A;
+              ./zarf tools kubectl get svc -A;
   - name: podinfo-chart
     required: true
     charts:
@@ -31,6 +40,9 @@ components:
         - values/podinfo-values.yaml
     images:
       - "ghcr.io/stefanprodan/podinfo:6.3.6"
+    actions:
+      onDeploy:
+        after: *ondeploy-after-k8s-info
   - name: podinfo-too-chart
     required: true
     charts:
@@ -43,3 +55,6 @@ components:
         - values/podinfo-too-values.yaml
     images:
       - "ghcr.io/stefanprodan/podinfo:6.3.6"
+    actions:
+      onDeploy:
+        after: *ondeploy-after-k8s-info
