@@ -3,4 +3,4 @@ package:
     max_package_size: "1000000000"
   deploy:
     set:
-      podinfo_too_color: "#000000"
+      podinfo_too_ui_color: "#000000"

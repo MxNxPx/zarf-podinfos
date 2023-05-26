@@ -17,4 +17,4 @@ tls:
   secretName: podinfo-tls-secret
 
 ui:
-  color: "###ZARF_VAR_PODINFO_TOO_COLOR###"
+  color: "###ZARF_VAR_PODINFO_TOO_UI_COLOR###"
