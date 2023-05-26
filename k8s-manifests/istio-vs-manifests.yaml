@@ -1,0 +1,37 @@
+---
+##apiVersion: networking.istio.io/v1beta1
+##kind: VirtualService
+##metadata:
+##  name: podinfo
+##  namespace: podinfo
+##spec:
+##  gateways:
+##  - istio-system/public
+##  hosts:
+##  - podinfo.bigbang.dev
+##  http:
+##  - route:
+##    - destination:
+##        host: podinfo
+##        port:
+##          number: 9898
+##---
+##apiVersion: networking.istio.io/v1beta1
+##kind: VirtualService
+##metadata:
+##  name: podinfo-too
+##  namespace: podinfo-too
+##spec:
+##  gateways:
+##  - istio-system/passthrough
+##  hosts:
+##  - keycloak.bigbang.dev
+##  tls:
+##  - match:
+##    - sniHosts: ["keycloak.bigbang.dev"]
+##    route:
+##    - destination:
+##        host: podinfo-too
+##        port:
+##          number: 9899
+##---

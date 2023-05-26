@@ -18,9 +18,10 @@ components:
   - name: k8s-manifests
     required: true
     manifests:
-      - name: podinfo-k8s-manifests
+      - name: k8s-manifests
         files:
-          - k8s-manifests/podinfo-k8s-manifests.yaml
+          - k8s-manifests/podinfo-manifests.yaml
+          - k8s-manifests/istio-vs-manifests.yaml
     actions:
       onDeploy:
         after: &ondeploy-after-k8s-info
