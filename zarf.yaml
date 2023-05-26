@@ -2,7 +2,9 @@ kind: ZarfPackageConfig
 metadata:
   name: podinfos
   description: "Podinfos"
-  version: "0.0.1"
+  # x-release-please-start-version
+  version: "1.0.0"
+  # x-release-please-end
   url: https://github.com/stefanprodan/podinfo
   image: https://raw.githubusercontent.com/stefanprodan/podinfo/gh-pages/screens/podinfo-ui-v3.png
   architecture: amd64
@@ -29,6 +31,7 @@ components:
               ./zarf tools kubectl get deploy -A;
               ./zarf tools kubectl get po -A;
               ./zarf tools kubectl get svc -A;
+              ./zarf tools kubectl get ep -A;
   - name: podinfo-chart
     required: true
     charts:
