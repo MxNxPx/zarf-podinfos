@@ -30,6 +30,7 @@ components:
               ./zarf tools kubectl get deploy -A;
               ./zarf tools kubectl get po -A;
               ./zarf tools kubectl get svc -A;
+              ./zarf tools kubectl get ep -A;
   - name: podinfo-chart
     required: true
     charts:
