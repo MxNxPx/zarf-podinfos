@@ -17,5 +17,6 @@ jobs:
         with:
           release-type: simple
           package-name: zarf-podinfos
+          skip-github-release: true	
           extra-files: |
             zarf.yaml

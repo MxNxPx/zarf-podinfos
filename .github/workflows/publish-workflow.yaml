@@ -1,7 +1,7 @@
 name: publish-workflow
 
 on:
-  create
+  release:
 
 permissions:
   contents: write
