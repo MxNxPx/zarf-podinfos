@@ -1,5 +1,24 @@
 # Changelog
 
+## [2.0.0](https://github.com/MxNxPx/zarf-podinfos/compare/v1.0.0...v2.0.0) (2023-06-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* update zarf var name and repo cleanup
+
+### Features
+
+* add publish gh workflow ([e080d4b](https://github.com/MxNxPx/zarf-podinfos/commit/e080d4b487ad17ddaa809ca8e8b6119c545604ab))
+* adding additional output on zarf action after deploys ([26edab4](https://github.com/MxNxPx/zarf-podinfos/commit/26edab4c84aca46e8c402cd2d7eda034268ea7e2))
+* separate manifests for podinfo and istio ([5c77268](https://github.com/MxNxPx/zarf-podinfos/commit/5c77268b05d1b1a300c3b31ad1434c798e759a2d))
+
+
+### Bug Fixes
+
+* change to zarf package description ([5fa7133](https://github.com/MxNxPx/zarf-podinfos/commit/5fa713387035b2c973eff7a67fbe94725c257ef2))
+* update zarf var name and repo cleanup ([e2cbe94](https://github.com/MxNxPx/zarf-podinfos/commit/e2cbe9469065d425718256145e86f229705fd9ec))
+
 ## 1.0.0 (2023-05-26)
 
 
