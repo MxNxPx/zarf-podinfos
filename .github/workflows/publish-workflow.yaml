@@ -1,9 +1,7 @@
 name: publish-workflow
 
 on:
-  create:
-    branches:
-      - main
+  create
 
 permissions:
   contents: write
