@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.6](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.5...v2.0.6) (2023-06-02)
+
+
+### Bug Fixes
+
+* combine the workflows ([e4805a2](https://github.com/MxNxPx/zarf-podinfos/commit/e4805a2e12ff65d29b37edfc3db1df0a737565b5))
+
 ## [2.0.5](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.4...v2.0.5) (2023-06-02)
 
 
