@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.4](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.3...v2.0.4) (2023-06-02)
+
+
+### Bug Fixes
+
+* remove filter ([8b943db](https://github.com/MxNxPx/zarf-podinfos/commit/8b943dbe1fadb678b20c12b1bb7246f6210f7673))
+* try changing trigger again ([6e4d1cd](https://github.com/MxNxPx/zarf-podinfos/commit/6e4d1cd93f25d405fadca80eee23648d65bb6052))
+
 ## [2.0.3](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.2...v2.0.3) (2023-06-02)
 
 
