@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.1](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.0...v2.0.1) (2023-06-02)
+
+
+### Bug Fixes
+
+* add env to publish ([c70ca14](https://github.com/MxNxPx/zarf-podinfos/commit/c70ca149eb20a47d9ae8aba387d59b3c9a8d533f))
+* change publish trigger from create to push ([4b1dac2](https://github.com/MxNxPx/zarf-podinfos/commit/4b1dac2204d22485824ebe79a0fc029ac11f1000))
+
 ## [2.0.0](https://github.com/MxNxPx/zarf-podinfos/compare/v1.0.0...v2.0.0) (2023-06-02)
 
 
