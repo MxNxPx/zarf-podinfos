@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.7](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.6...v2.0.7) (2023-06-02)
+
+
+### Bug Fixes
+
+* add debug to test ([6635f85](https://github.com/MxNxPx/zarf-podinfos/commit/6635f85637b20b434a148288bb38999474900306))
+* add debug to test ([5191bef](https://github.com/MxNxPx/zarf-podinfos/commit/5191bef84d50428ff36492d09f683dc174dc8937))
+
 ## [2.0.6](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.5...v2.0.6) (2023-06-02)
 
 
