@@ -13,6 +13,7 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-     - uses: actions/checkout@v1
-     - run: |
+     - env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       run: |
         echo "The publish workflow was triggered!!!!"
