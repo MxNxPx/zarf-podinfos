@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.3](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.2...v2.0.3) (2023-06-02)
+
+
+### Bug Fixes
+
+* change trigger again for publish ([5c48187](https://github.com/MxNxPx/zarf-podinfos/commit/5c48187d738eac05d81add8245b70c7cca5a0bf9))
+
 ## [2.0.2](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.1...v2.0.2) (2023-06-02)
 
 
