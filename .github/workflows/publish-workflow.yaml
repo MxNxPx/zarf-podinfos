@@ -1,9 +1,7 @@
 name: publish-workflow
 
 on:
-  release:
-    types: 
-      - published
+  create
 
 permissions:
   contents: write
@@ -12,6 +10,7 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
+    if: github.event_name == 'release' && github.event.action == 'published'
     steps:
      - env:
          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
