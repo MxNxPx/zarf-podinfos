@@ -19,3 +19,10 @@ jobs:
           package-name: zarf-podinfos
           extra-files: |
             zarf.yaml
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+     - env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       run: |
+        echo "The publish workflow was triggered!!!!"
