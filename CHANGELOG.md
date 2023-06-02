@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.8](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.7...v2.0.8) (2023-06-02)
+
+
+### Bug Fixes
+
+* try to make release manual ([c5b0e72](https://github.com/MxNxPx/zarf-podinfos/commit/c5b0e72ba7ca262d16631a57493a7a55f11907ae))
+* try to make release manual ([af992c8](https://github.com/MxNxPx/zarf-podinfos/commit/af992c87f94968bd2bd3103f6b034c1dc75b32d5))
+
 ## [2.0.7](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.6...v2.0.7) (2023-06-02)
 
 
