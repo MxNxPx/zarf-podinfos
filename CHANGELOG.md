@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.5](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.4...v2.0.5) (2023-06-02)
+
+
+### Bug Fixes
+
+* change logic again again ([4338e60](https://github.com/MxNxPx/zarf-podinfos/commit/4338e60b0268ac7064b6b240814b9fc0ab6d3a86))
+
 ## [2.0.4](https://github.com/MxNxPx/zarf-podinfos/compare/v2.0.3...v2.0.4) (2023-06-02)
 
 
