@@ -10,9 +10,9 @@ permissions:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    if: github.event_name == 'release' && github.event.action == 'published'
+    #if: github.event_name == 'release' && github.event.action == 'published'
     steps:
      - env:
-         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+         ACTIONS_RUNNER_DEBUG: true
        run: |
         echo "The publish workflow was triggered!!!!"
