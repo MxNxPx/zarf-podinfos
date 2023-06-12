@@ -20,6 +20,7 @@ jobs:
           release-type: simple
           bump-minor-pre-major: true
           bump-patch-for-minor-pre-major: true
+          release-as: 0.0.2	
       - id: release-flag
         run: echo "release_created=${{ steps.tag.outputs.release_created || false }}" >> $GITHUB_OUTPUT 
 
