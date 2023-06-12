@@ -6,7 +6,8 @@
       "draft": false,
       "bump-minor-pre-major": "true",
       "bump-patch-for-minor-pre-major": "true",
-      "release-as": "0.0.7",
+      "release-as": "0.0.9",
+      "last-release-sha": "c68d12a362f875e1bba03348d6a2516cc1599d29",
       "extra-files": [
         "zarf.yaml"
       ]
