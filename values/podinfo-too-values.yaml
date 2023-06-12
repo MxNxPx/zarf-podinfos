@@ -9,7 +9,6 @@ securityContext:
   privileged: false
   readOnlyRootFilesystem: true
   runAsGroup: 1001
-  runAsNonRoot: true
   runAsUser: 1001
 
 tls:
