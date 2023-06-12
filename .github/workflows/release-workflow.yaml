@@ -17,11 +17,6 @@ jobs:
         uses: google-github-actions/release-please-action@v3
         with:
           command: manifest # use configs in release-please-config.json
-          release-type: simple
-          bump-minor-pre-major: true
-          bump-patch-for-minor-pre-major: true
-          last-release-sha: 422cabf4f62314d5406fe816730042eaadd8f8d3
-          release-as: 0.0.2
       - id: release-flag
         run: echo "release_created=${{ steps.tag.outputs.release_created || false }}" >> $GITHUB_OUTPUT 
 
