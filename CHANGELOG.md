@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.3](https://github.com/MxNxPx/zarf-podinfos/compare/v0.0.2...v0.0.3) (2023-06-12)
+
+
+### Bug Fixes
+
+* cleanup changelog entry ([164f4ba](https://github.com/MxNxPx/zarf-podinfos/commit/164f4ba3fbfd511baa2867c2205bf9f26c7afe34))
+* remove hardcoded version ([cec644f](https://github.com/MxNxPx/zarf-podinfos/commit/cec644fc943b56a77e58bdbc4a304e658c3ccde8))
+
 ## [0.0.2](https://github.com/MxNxPx/zarf-podinfos/compare/v0.0.1...v0.0.2) (2023-06-12)
 
 
