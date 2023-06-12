@@ -1,4 +1,4 @@
-name: release-please-workflow
+name: release-please
 
 on:
   push:
