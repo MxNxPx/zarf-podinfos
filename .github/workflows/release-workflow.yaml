@@ -25,6 +25,9 @@ jobs:
 
   publish-release:
     needs: tag-new-version
+    runs-on: ubuntu-latest
     if: ${{ needs.tag-new-version.outputs.release_created == 'true'}}
-    run: echo "RELEASE WILL BE CREATED AT THIS POINT"
-    secrets: inherit
+    steps:
+      - name: Create Release Tag
+        id: echo-release
+        run: echo "RELEASE WILL BE CREATED AT THIS POINT"
