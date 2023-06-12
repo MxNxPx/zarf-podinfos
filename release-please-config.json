@@ -3,7 +3,8 @@
     ".": {
       "release-type": "simple",
       "changelog-path": "CHANGELOG.md",
-      "draft": true,
+      "draft": false,
+      "draft-pull-request": true,
       "bump-minor-pre-major": "true",
       "bump-patch-for-minor-pre-major": "true",
       "extra-files": [
