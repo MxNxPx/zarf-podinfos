@@ -52,5 +52,3 @@
 * update zarf var name and repo cleanup ([e2cbe94](https://github.com/MxNxPx/zarf-podinfos/commit/e2cbe9469065d425718256145e86f229705fd9ec))
 * updating the cert hostname and secret ([2a49f49](https://github.com/MxNxPx/zarf-podinfos/commit/2a49f49b3208477189d092ed97b662abab7d6579))
 * workflow tweak to set new rel ([053ee58](https://github.com/MxNxPx/zarf-podinfos/commit/053ee5866d30ad52550f3a098e4c1f8196d6c1d9))
-
-## Changelog
