@@ -1,13 +1,13 @@
 {
   "packages": {
     ".": {
-      "releaseType": "simple",
+      "release-type": "simple",
       "changelog-path": "CHANGELOG.md",
       "draft": false,
-      "bumpMinorPreMajor": "true",
-      "bumpPatchForMinorPreMajor": "true",
-      "releaseAs": "0.0.2",
-      "extraFiles": [
+      "bump-minor-pre-major": "true",
+      "bump-patch-for-minor-pre-major": "true",
+      "release-as": "0.0.2",
+      "extra-files": [
         "zarf.yaml"
       ]
     }
