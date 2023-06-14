@@ -4,7 +4,7 @@
       "release-type": "simple",
       "changelog-path": "CHANGELOG.md",
       "draft": false,
-      "versioning-strategy": "always-bump-patch",
+      "versioning": "always-bump-patch",
       "extra-files": [
         "zarf.yaml"
       ]
