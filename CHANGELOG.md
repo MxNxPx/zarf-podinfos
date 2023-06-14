@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0](https://github.com/MxNxPx/zarf-podinfos/compare/v0.0.10...v0.1.0) (2023-06-14)
+
+
+### Features
+
+* add clickable link for release-please ([708a39e](https://github.com/MxNxPx/zarf-podinfos/commit/708a39eed088350e95485baec8d193c08b484686))
+
 ## [0.0.10](https://github.com/MxNxPx/zarf-podinfos/compare/v0.0.9...v0.0.10) (2023-06-14)
 
 
