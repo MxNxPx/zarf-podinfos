@@ -36,3 +36,7 @@ date; time zarf package deploy --confirm zarf-package-podinfos-*.tar.zst
 
 - get the LB IPs of the istio ingressgw's
 - update your hosts file accordingly & curl away!
+
+## releases are done with release-please
+
+this repo uses release-please GHA for cutting releases
