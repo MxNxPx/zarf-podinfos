@@ -39,4 +39,4 @@ date; time zarf package deploy --confirm zarf-package-podinfos-*.tar.zst
 
 ## releases are done with release-please
 
-this repo uses [release-please](https://github.com/google-github-actions/release-please-action#release-please-action) GHA for cutting releases
+this repo uses [release-please](https://github.com/google-github-actions/release-please-action#release-please-action) GHA for cutting releases automatically
