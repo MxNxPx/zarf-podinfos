@@ -1,5 +1,29 @@
 # Changelog
 
+## [0.0.10](https://github.com/MxNxPx/zarf-podinfos/compare/v0.0.9...v0.0.10) (2023-06-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* change versioning strategy to bump patch
+
+### Features
+
+* change versioning strategy to bump patch ([6601be7](https://github.com/MxNxPx/zarf-podinfos/commit/6601be71db63d46c253d0c9f43e3bb35ab9e0aa6))
+* now the readme reflects release tool ([193f318](https://github.com/MxNxPx/zarf-podinfos/commit/193f3183336f74c6a81accc3fe5e27f214659a87))
+
+
+### Bug Fixes
+
+* change to draft prs not draft releases ([53f04b7](https://github.com/MxNxPx/zarf-podinfos/commit/53f04b77d90f5c330c01795bdd9fb70986c7f70a))
+* cleanup changelog ([7a9b1ea](https://github.com/MxNxPx/zarf-podinfos/commit/7a9b1eafba3b3a6d9c2db26626d91cdeaa5b68a7))
+
+
+### Miscellaneous Chores
+
+* release 0.0.10 ([f3b7a66](https://github.com/MxNxPx/zarf-podinfos/commit/f3b7a66f349b5efdf8cab4ae9578e0d52cdf66a2))
+* release 0.0.9 ([0bb6b11](https://github.com/MxNxPx/zarf-podinfos/commit/0bb6b1195f837d68468466e7554299a812b4b159))
+
 ## [0.0.9](https://github.com/MxNxPx/zarf-podinfos/compare/v0.0.8...v0.0.9) (2023-06-14)
 
 
