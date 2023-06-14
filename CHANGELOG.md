@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/MxNxPx/zarf-podinfos/compare/v0.1.0...v0.2.0) (2023-06-14)
+
+
+### Features
+
+* precise version strategy set ([3689302](https://github.com/MxNxPx/zarf-podinfos/commit/36893029f05e12f02fd007500f119febcaac6f27))
+
 ## [0.1.0](https://github.com/MxNxPx/zarf-podinfos/compare/v0.0.10...v0.1.0) (2023-06-14)
 
 
