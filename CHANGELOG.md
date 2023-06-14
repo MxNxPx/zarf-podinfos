@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1](https://github.com/MxNxPx/zarf-podinfos/compare/v0.2.0...v0.2.1) (2023-06-14)
+
+
+### Features
+
+* set patch bump only ([ba76cb7](https://github.com/MxNxPx/zarf-podinfos/commit/ba76cb7c033dc7e7465daecfe5fee5d041226a1e))
+* working dubbd link ([e0b7c75](https://github.com/MxNxPx/zarf-podinfos/commit/e0b7c75865b420ec781f79441ed986cbcef716a0))
+
 ## [0.2.0](https://github.com/MxNxPx/zarf-podinfos/compare/v0.1.0...v0.2.0) (2023-06-14)
 
 
