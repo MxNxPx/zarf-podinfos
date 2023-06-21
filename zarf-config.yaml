@@ -3,4 +3,5 @@ package:
     max_package_size: "1000000000"
   deploy:
     set:
+      #used to set helm value for ui
       podinfo_too_ui_color: "#000000"
