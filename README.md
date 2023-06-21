@@ -40,3 +40,9 @@ date; time zarf package deploy --confirm zarf-package-podinfos-*.tar.zst
 ## releases are done with release-please
 
 this repo uses [release-please](https://github.com/google-github-actions/release-please-action#release-please-action) GHA for cutting releases automatically
+
+useful commit if you want to specify a version:
+
+```console
+git commit --allow-empty -m "chore: release 0.3.0" -m "Release-As: 0.3.0"
+```
