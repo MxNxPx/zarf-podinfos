@@ -1,0 +1,17 @@
+on:
+  workflow_dispatch:
+    inputs:
+      eks_cluster_name:
+        required: true
+        type: string
+
+name: manual-workflow
+
+jobs:
+  test-vars:
+    permissions: write-all
+    runs-on: ubuntu-latest
+    steps:
+      - id: output-input
+        run: |
+          echo "this was passed in: ${{inputs.eks_cluster_name}}"
