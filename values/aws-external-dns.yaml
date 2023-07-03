@@ -1,0 +1,25 @@
+image:
+  repository: registry1.dso.mil/ironbank/external-dns
+  tag: "v0.13.4"
+  pullPolicy: IfNotPresent
+
+sources:
+  - istio-virtualservice
+
+policy: upsert-only
+
+registry: txt
+txtOwnerId: "###ZARF_VAR_HOSTED_ZONE_ID###"
+txtPrefix: "external-dns."
+
+domainFilters: ["###ZARF_VAR_DOMAIN###"]
+
+provider: aws
+
+extraArgs: 
+  - --aws-prefer-cname
+
+serviceAccount:
+  create: true
+  annotations:
+    eks.amazonaws.com/role-arn: "###ZARF_VAR_ARN###"
