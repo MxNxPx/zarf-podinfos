@@ -29,7 +29,24 @@
       ".github"
     ]
   },
+  "hostRules": [
+    {
+      "matchHost": "registry1.dso.mil",
+      "hostType": "docker",
+      "username": "mxnxpx",
+      "encrypted": {
+        "password": "wcBMA8xOaBJvzJNbAQf/QiP6vxDngFs8pQdxrMmD7Jkpo41yEKZtwNCRdmXhLmeJ3+UkmyGeCxsIxBoFbe61BB5Xm425EaKBQoUZr0t+DlO3Lk8q23YRsoRG9F+H8cCiX/8rrwE3bSHp7DvU5ufZpZ/sMMvHSijcTNzYnOCB7q7mk5aQlHlVmN2itRKH0I+JX+N5m+eyR8nyjr9Uhfnf+8m8W3KJMxtN42HYUEgv+xCAgv0h3uM1oV4Q08UsNeT5phsj+nrlpuwZyctgvnh4hWvmoVacYviWQTAPnKhc9J/yIXg52KM+N9FbOmULZXY506bvd96J2qzPv+fbYcV5ywP03CMm8OXQ2RMWBQGCENJ6AVl4ZB2omrLdkDk0QHDZKclwjp8SFjInM0/QLarEEfW4TUe00JF7exPNzwlhxHs79bnI9taIfERtNePwlbDgyXQwlwkCDX4QvegyvKZaNwInhKLqV2pw1PVWb86nmwbYnRdlTzwGxmfDhHYdSHR+/jhBtnUDQVRO5Kk"
+      }
+    }
+  ],
   "regexManagers": [
+    {
+      "fileMatch": ["./.+\\.ya?ml$"],
+      "matchStrings": [
+        "# renovate: datasource=docker( versioning=(?<versioning>.*?))?\n\\s*-\\s+(?<depName>[^:]+):(?<currentValue>.*)"
+      ],
+      "datasourceTemplate": "docker"
+    },
     {
       "fileMatch": ["./.+\\.yaml$"],
       "matchStrings": [
