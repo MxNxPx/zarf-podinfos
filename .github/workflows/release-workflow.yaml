@@ -16,11 +16,7 @@ jobs:
         id: tag
         uses: google-github-actions/release-please-action@v3.7.10
         with:
-#          command: manifest # use configs in release-please-config.json
-          release-type: simple
-          extra-files: zarf.yaml
-          versioning: always-bump-patch
-          changelog-path: CHANGELOG.md
+          command: manifest # use configs in release-please-config.json
       - id: release-flag
         run: echo "release_created=${{ steps.tag.outputs.release_created || false }}" >> $GITHUB_OUTPUT 
 

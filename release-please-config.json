@@ -1,0 +1,19 @@
+{
+  "packages": {
+    ".": {
+      "release-type": "simple",
+      "changelog-path": "CHANGELOG.md",
+      "draft": false,
+      "versioning": "always-bump-patch",
+      "changelog-sections": [
+        { "type": "feat", "section": "Features", "hidden": false },
+        { "type": "fix", "section": "Bug Fixes", "hidden": false },
+        { "type": "chore", "section": "Miscellaneous", "hidden": false }
+      ],
+      "extra-files": [
+        "zarf.yaml",
+        "external-dns/zarf.yaml"
+      ]
+    }
+  }
+}
