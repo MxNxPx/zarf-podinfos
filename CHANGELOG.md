@@ -1,5 +1,30 @@
 # Changelog
 
+## [0.4.0](https://github.com/MxNxPx/zarf-podinfos/compare/v0.3.0...v0.4.0) (2023-07-06)
+
+
+### Features
+
+* add external-dns and update reno ([#74](https://github.com/MxNxPx/zarf-podinfos/issues/74)) ([536efd1](https://github.com/MxNxPx/zarf-podinfos/commit/536efd107f8d56fc6ee035d93744ced68bc3bef1))
+* update readme with useful command ([467859d](https://github.com/MxNxPx/zarf-podinfos/commit/467859d3afb7effaa63ed5e928423c2894f64887))
+
+
+### Bug Fixes
+
+* add docs ([#71](https://github.com/MxNxPx/zarf-podinfos/issues/71)) ([0de8271](https://github.com/MxNxPx/zarf-podinfos/commit/0de8271be68b88d831642d8c51ed78e63f9df8be))
+* release-please-config.json changelog ([#89](https://github.com/MxNxPx/zarf-podinfos/issues/89)) ([5ef6566](https://github.com/MxNxPx/zarf-podinfos/commit/5ef6566ecbada6e1a31bb67363a00a058580e6a7))
+* release-please-config.json syntax ([#85](https://github.com/MxNxPx/zarf-podinfos/issues/85)) ([7091323](https://github.com/MxNxPx/zarf-podinfos/commit/70913235892154ac97b318d798bbef7a870832dd))
+* Update renovate.json ([#82](https://github.com/MxNxPx/zarf-podinfos/issues/82)) ([21b5228](https://github.com/MxNxPx/zarf-podinfos/commit/21b52287c7c136e7332800e874e5af2a41b7bd94))
+* Update renovate.json ([#83](https://github.com/MxNxPx/zarf-podinfos/issues/83)) ([82c1536](https://github.com/MxNxPx/zarf-podinfos/commit/82c15365308e4677fc931ba321d2e4f37b6f2127))
+
+
+### Miscellaneous
+
+* **deps:** update docker image registry1.dso.mil/ironbank/external-dns to v0.13.4 ([#78](https://github.com/MxNxPx/zarf-podinfos/issues/78)) ([fe2a32e](https://github.com/MxNxPx/zarf-podinfos/commit/fe2a32e21749fc0b9eef01a8d9ba654c392b1a79))
+* **deps:** update google-github-actions/release-please-action action to v3.7.10 ([#87](https://github.com/MxNxPx/zarf-podinfos/issues/87)) ([f9f0da4](https://github.com/MxNxPx/zarf-podinfos/commit/f9f0da45976e4e9730ed34ffb333f62b3aaf6a37))
+* **deps:** update helm chart external-dns to v1.13.0 ([#75](https://github.com/MxNxPx/zarf-podinfos/issues/75)) ([9ca6d3d](https://github.com/MxNxPx/zarf-podinfos/commit/9ca6d3d4a1bb0cdfec66163c8205fa50213da8c2))
+* update release-please-config.json ([#88](https://github.com/MxNxPx/zarf-podinfos/issues/88)) ([3ef0a21](https://github.com/MxNxPx/zarf-podinfos/commit/3ef0a21fa81b384ba6504a4cd2739eab3252b8ee))
+
 ## [0.3.0](https://github.com/MxNxPx/zarf-podinfos/compare/v0.2.1...v0.3.0) (2023-06-14)
 
 
