@@ -1,16 +1,5 @@
 name: update-release-info-from-tag
 
-on:
-  workflow_dispatch:
-    inputs:
-      tag-name:
-        description: 'GitHub tag name (ex: v0.3.0)'
-        required: true
-      release-body-append:
-        description: 'What to append to the Release body'
-        required: true
-
-
 #inputs:
 #  github-token:
 #    description: GitHub token to authenticate to the GitHub REST API
@@ -25,8 +14,18 @@ on:
 #    value: ${{ steps.get-release-id.outputs.release-id }}
 
 
+on:
+  workflow_dispatch:
+    inputs:
+      tag-name:
+        description: 'GitHub tag name'
+        required: true
+      release-body-update:
+        description: 'Content to append to release body'
+        required: true
+
 jobs:
-  get_release_id:
+  update-release-body:
     runs-on: ubuntu-latest
 
     steps:
@@ -43,7 +42,7 @@ jobs:
           RELEASES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases")
           
           # Find the release ID for the given tag name
-          RELEASE_ID=$(echo "$RELEASES" | jq -r --arg TAG_NAME "$TAG_NAME" '.[] | select(.tag-name == $TAG_NAME) | .id')
+          RELEASE_ID=$(echo "$RELEASES" | jq -r --arg TAG_NAME "$TAG_NAME" '.[] | select(.tag_name == $TAG_NAME) | .id')
           
           echo "Release ID for tag $TAG_NAME: $RELEASE_ID"
           
@@ -53,25 +52,23 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Show Release ID
-        id: show-release-id
         run: |
           echo "Release ID: ${{ steps.get-release-id.outputs.release-id }}"
-
-      - name: Update Release Body
-        id: update-release-body
+      
+      - name: Append to Release Body
+        id: append-to-release-body
         run: |
           # Set the input release body update
-          RELEASE_BODY_APPEND="${{ github.event.inputs.release-body-append }}"
+          RELEASE_BODY_UPDATE="${{ github.event.inputs.release-body-update }}"
           
           # Get the current release body using GitHub API
           RELEASE_BODY=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}" | jq -r '.body')
           
           # Append the update to the release body
-          NEW_RELEASE_BODY="$RELEASE_BODY\n\n$RELEASE_BODY_APPEND"
+          NEW_RELEASE_BODY="$RELEASE_BODY\n\n$RELEASE_BODY_UPDATE"
           
           # Update the release body using GitHub API
           curl -X PATCH -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" -d "{\"body\": \"$NEW_RELEASE_BODY\"}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}"
         env:
-          RELEASE_BODY_APPEND: ${{ github.event.inputs.release-body-append }}
+          RELEASE_BODY_UPDATE: ${{ github.event.inputs.release-body-update }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
