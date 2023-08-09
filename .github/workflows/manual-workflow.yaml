@@ -1,17 +1,33 @@
 on:
   workflow_dispatch:
     inputs:
-      eks_cluster_name:
+      tag_name:
         required: true
         type: string
+#      eks_cluster_name:
+#        required: true
+#        type: string
 
 name: manual-workflow
 
 jobs:
-  test-vars:
-    permissions: write-all
+  test:
     runs-on: ubuntu-latest
     steps:
-      - id: output-input
-        run: |
-          echo "this was passed in: ${{inputs.eks_cluster_name}}"
+      - name: Get latest release
+        id: latest_release
+        uses: kaliber5/action-get-release@v1
+        with:
+          token: ${{ github.token }}
+          tag_name: ${{inputs.tag_name}}"
+#          latest: true
+
+#jobs:
+#  test-vars:
+#    permissions: write-all
+#    runs-on: ubuntu-latest
+#    steps:
+#      - id: output-input
+#        run: |
+#          echo "this was passed in: ${{inputs.eks_cluster_name}}"
+
