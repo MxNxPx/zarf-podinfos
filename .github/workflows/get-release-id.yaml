@@ -1,0 +1,39 @@
+name: Get Release ID from Tag
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'GitHub tag name'
+        required: true
+
+jobs:
+  get_release_id:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get Release ID
+        id: get_release_id
+        run: |
+          # Set the input tag name
+          TAG_NAME="${{ github.event.inputs.tag_name }}"
+          
+          # Fetch the releases list using GitHub API
+          RELEASES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases")
+          
+          # Find the release ID for the given tag name
+          RELEASE_ID=$(echo "$RELEASES" | jq -r --arg TAG_NAME "$TAG_NAME" '.[] | select(.tag_name == $TAG_NAME) | .id')
+          
+          echo "Release ID for tag $TAG_NAME: $RELEASE_ID"
+          
+          echo "::set-output name=release_id::$RELEASE_ID"
+        env:
+          TAG_NAME: ${{ github.event.inputs.tag_name }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Show Release ID
+        run: |
+          echo "Release ID: ${{ steps.get_release_id.outputs.release_id }}"
