@@ -19,8 +19,13 @@ jobs:
         uses: kaliber5/action-get-release@v1
         with:
           token: ${{ github.token }}
+          latest: true
+      - name: Get desired release
+        id: desired_release
+        uses: kaliber5/action-get-release@v1
+        with:
+          token: ${{ github.token }}
           tag_name: ${{inputs.tag_name}}
-#          latest: true
 
 #jobs:
 #  test-vars:
