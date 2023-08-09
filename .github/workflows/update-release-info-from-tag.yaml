@@ -1,4 +1,4 @@
-name: update-release-from-tag
+name: update-release-info-from-tag
 
 on:
   workflow_dispatch:
@@ -6,6 +6,10 @@ on:
       tag-name:
         description: 'GitHub tag name (ex: v0.3.0)'
         required: true
+      release-body-append:
+        description: 'What to append to the Release body'
+        required: true
+
 
 #inputs:
 #  github-token:
@@ -53,11 +57,21 @@ jobs:
         run: |
           echo "Release ID: ${{ steps.get-release-id.outputs.release-id }}"
 
-      - name: Add Test Report to Release
-        uses: irongut/EditRelease@v1.2.0
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          id: ${{ steps.get-release-id.outputs.release-id }}
-          body: "Released to GitHub Packages."
-          replacebody: false
+      - name: Update Release Body
+        id: update-release-body
+        run: |
+#          # Set the input release body update
+#          RELEASE_BODY_APPEND="${{ github.event.inputs.release-body-append }}"
+          
+          # Get the current release body using GitHub API
+          RELEASE_BODY=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}" | jq -r '.body')
+          
+          # Append the update to the release body
+          NEW_RELEASE_BODY="$RELEASE_BODY\n\n$RELEASE_BODY_APPEND"
+          
+          # Update the release body using GitHub API
+          curl -X PATCH -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "Accept: application/vnd.github.v3+json" -d "{\"body\": \"$NEW_RELEASE_BODY\"}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}"
+        env:
+          RELEASE_BODY_APPEND: ${{ github.event.inputs.release-body-append }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
