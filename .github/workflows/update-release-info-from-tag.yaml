@@ -51,7 +51,7 @@ jobs:
         id: append-to-release-body
         run: |
           RELEASE_BODY_UPDATE="${{ github.event.inputs.release-body-update }}"
-          RELEASE_BODY=$(curl -s -H "Authorization: Bearer ${{ secrets.RELEASE_PAT }}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}" | jq -r '.body')
+          RELEASE_BODY=$(curl -s -H "Authorization: Bearer ${{ secrets.RELEASE_PAT }}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}" | jq '.body' | sed -e 's/\"//g')
           NEW_RELEASE_BODY="$RELEASE_BODY\n\n$RELEASE_BODY_UPDATE"
           curl -X PATCH -H "Authorization: Bearer ${{ secrets.RELEASE_PAT }}" -H "Accept: application/vnd.github.v3+json" -d "{\"body\": \"$NEW_RELEASE_BODY\"}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}"
         env:
