@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.4.1](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.0...v0.4.1) (2023-08-10)
+
+
+### Features
+
+* changing to use yaml ([71e6375](https://github.com/MxNxPx/zarf-podinfos/commit/71e637569ca3d01b6737d627a2a5ca37c499d681))
+
+
+### Bug Fixes
+
+* revert rel-plz config ([60ec722](https://github.com/MxNxPx/zarf-podinfos/commit/60ec72284812e89b7ccc20b98300e9142c559b79))
+
 ## [0.4.0](https://github.com/MxNxPx/zarf-podinfos/compare/v0.3.0...v0.4.0) (2023-07-06)
 
 
