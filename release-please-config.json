@@ -11,7 +11,7 @@
         { "type": "chore", "section": "Miscellaneous", "hidden": false }
       ],
       "extra-files": [
-        ".hiddenFiles/zarf.yaml",
+        ".github/test/zarf.yaml",
         "test/zarf.yaml",
         "zarf.yaml",
         "external-dns/zarf.yaml"
