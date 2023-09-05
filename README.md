@@ -9,7 +9,7 @@
 - k3d cluster
   - zarf init
   - dubbd deployed (big bang) per [these instructions](https://github.com/defenseunicorns/uds-package-dubbd/blob/main/README.md#example-dubbd-deployment---using-pre-built-oci-packages-here)
-- kubecontext set to the above cluster
+- kubecontext set to this k3d cluster
 
 ## optional steps
 
