@@ -41,7 +41,7 @@ jobs:
           ADD_TO_BOTTOM="${{ github.event.inputs.release-body-bottom }}"
           gh release view "v${TAG_NAME}" -R ${{ github.repository }} --json body --jq '.body' > "${TAG_NAME}-release-notes.txt"
           REGEX_CMD_ARGS="-e '1 i\\${ADD_TO_TOP}\\n' -e '\$a \\\n${ADD_TO_BOTTOM}'"
-          cat ${TAG_NAME}-release-notes.txt | eval "${REGEX_CMD_ARGS}" > "NEW-${TAG_NAME}-release-notes.txt"
+          cat ${TAG_NAME}-release-notes.txt | eval "sed ${REGEX_CMD_ARGS}" > "NEW-${TAG_NAME}-release-notes.txt"
           gh release edit "v${TAG_NAME}" -R ${{ github.repository }} --notes-file "NEW-${TAG_NAME}-release-notes.txt"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
