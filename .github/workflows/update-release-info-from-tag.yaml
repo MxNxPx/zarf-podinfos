@@ -19,9 +19,10 @@ on:
       tag-name:
         description: 'GitHub tag name'
         required: true
-      release-body-update:
-        description: 'Content to append to release body'
-        required: true
+      release-body-top:
+        description: 'Content to add to the top of the release body'
+      release-body-bottom:
+        description: 'Content to add to the bottom of the release body'
 
 jobs:
   update-release-body:
@@ -32,14 +33,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Append to Release Body
-        id: append-to-release-body
+      - name: Modify Release Body
+        id: modify-release-body
         run: |
           TAG_NAME="${{ github.event.inputs.tag-name }}"
-          RELEASE_BODY=$(gh release view "v${TAG_NAME}" -R ${{ github.repository }} --json body --jq '.body')
-          RELEASE_BODY_UPDATE="${{ github.event.inputs.release-body-update }}"
-          NEW_RELEASE_BODY="${RELEASE_BODY}\\\n${RELEASE_BODY_UPDATE}"
-          gh release edit "v${TAG_NAME}" -R ${{ github.repository }} --notes "${NEW_RELEASE_BODY}"
+          ADD_TO_TOP="${{ github.event.inputs.release-body-top }}"
+          ADD_TO_BOTTOM="${{ github.event.inputs.release-body-bottom }}"
+          gh release view "v${TAG_NAME}" -R ${{ github.repository }} --json body --jq '.body' > "${TAG_NAME}-release-notes.txt"
+          REGEX_CMD_ARGS="-e '1 i\\${ADD_TO_TOP}\\n' -e '\$a \\\n${ADD_TO_BOTTOM}'"
+          cat ${TAG_NAME}-release-notes.txt | eval "${REGEX_CMD_ARGS}" > "NEW-${TAG_NAME}-release-notes.txt"
+          gh release edit "v${TAG_NAME}" -R ${{ github.repository }} --notes-file "NEW-${TAG_NAME}-release-notes.txt"
         env:
-          RELEASE_BODY_UPDATE: ${{ github.event.inputs.release-body-update }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
