@@ -38,7 +38,7 @@ jobs:
           TAG_NAME="${{ github.event.inputs.tag-name }}"
           RELEASE_BODY=$(gh release view "v${TAG_NAME}" -R ${{ github.repository }} --json body --jq '.body')
           RELEASE_BODY_UPDATE="${{ github.event.inputs.release-body-update }}"
-          NEW_RELEASE_BODY="${RELEASE_BODY}\\n${RELEASE_BODY_UPDATE}"
+          NEW_RELEASE_BODY="${RELEASE_BODY}\\\n${RELEASE_BODY_UPDATE}"
           gh release edit "v${TAG_NAME}" -R ${{ github.repository }} --notes "${NEW_RELEASE_BODY}"
         env:
           RELEASE_BODY_UPDATE: ${{ github.event.inputs.release-body-update }}
