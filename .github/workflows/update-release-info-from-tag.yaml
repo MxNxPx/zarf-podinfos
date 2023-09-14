@@ -36,8 +36,9 @@ jobs:
         run: |
           TAG_NAME="${{ github.event.inputs.tag-name }}"
           #RELEASES=$(curl -s -H "Authorization: Bearer ${{ secrets.RELEASE_PAT }}" "https://api.github.com/repos/${{ github.repository }}/releases")
-          RELEASES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases")
-          RELEASE_ID=$(echo "$RELEASES" | jq -r --arg TAG_NAME "$TAG_NAME" '.[] | select(.tag_name == $TAG_NAME) | .id')
+          #RELEASES=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases")
+          #RELEASE_ID=$(echo "$RELEASES" | jq -r --arg TAG_NAME "$TAG_NAME" '.[] | select(.tag_name == $TAG_NAME) | .id')
+          RELEASE_ID=$(gh release view "v${TAG_NAME}" -R ${{ github.repository }} --json id --jq '.id')
           echo "Release ID for tag $TAG_NAME: $RELEASE_ID"
           echo "::set-output name=release-id::$RELEASE_ID"
         env:
@@ -52,16 +53,18 @@ jobs:
       - name: Append to Release Body
         id: append-to-release-body
         run: |
+          RELEASE_BODY=$(gh release view "${{ steps.get-release-id.outputs.release-id }}" -R ${{ github.repository }} --json body --jq '.body')
           RELEASE_BODY_UPDATE="${{ github.event.inputs.release-body-update }}"
           #RELEASE_BODY=$(curl -s -H "Authorization: Bearer ${{ secrets.RELEASE_PAT }}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}" | jq '.body' | sed -e 's/\"//g')
-          RELEASE_BODY=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}" | jq '.body' | sed -e 's/\"//g')
-          NEW_RELEASE_BODY="$RELEASE_BODY\n$RELEASE_BODY_UPDATE"
+          #RELEASE_BODY=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}" | jq '.body' | sed -e 's/\"//g')
+          NEW_RELEASE_BODY="${RELEASE_BODY}\n${RELEASE_BODY_UPDATE}"
+          gh release edit $release_id -R ${{ github.repository }} --notes "${NEW_RELEASE_BODY}"
           #curl -X PATCH -H "Authorization: Bearer ${{ secrets.RELEASE_PAT }}" -H "Accept: application/vnd.github.v3+json" -d "{\"body\": \"$NEW_RELEASE_BODY\"}" "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}"
-          curl -X PATCH \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            -d "{\"body\": \"$NEW_RELEASE_BODY\"}" \
-            "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}"
+          #curl -X PATCH \
+          #  -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+          #  -H "Accept: application/vnd.github.v3+json" \
+          #  -d "{\"body\": \"$NEW_RELEASE_BODY\"}" \
+          #  "https://api.github.com/repos/${{ github.repository }}/releases/${{ steps.get-release-id.outputs.release-id }}"
 
         env:
           RELEASE_BODY_UPDATE: ${{ github.event.inputs.release-body-update }}
