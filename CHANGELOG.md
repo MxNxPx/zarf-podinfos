@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.10](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.9...v0.4.10) (2023-09-15)
+
+
+### Features
+
+* dynamic list built in ci for deploy inst ([8503147](https://github.com/MxNxPx/zarf-podinfos/commit/85031474947b08ee43984cc61317c966bd5717b1))
+
 ## [0.4.9](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.8...v0.4.9) (2023-09-15)
 
 
