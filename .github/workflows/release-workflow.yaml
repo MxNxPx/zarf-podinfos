@@ -23,15 +23,21 @@ jobs:
       - id: release-tag
         run: echo "release_tag=${{ steps.tag.outputs.version || false }}" >> $GITHUB_OUTPUT 
 
-  update-release-notes:
+  build-release-notes-update:
     needs: tag-new-version
-    runs-on: ubuntu-latest
     if: ${{ needs.tag-new-version.outputs.release_created == 'true'}}
+    runs-on: ubuntu-latest
     outputs:
+      header_info: ${{ steps.header-info.outputs.header_info }}
       deploy_info: ${{ steps.deploy-info.outputs.deploy_info }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Build Header Info
+        id: header-info
+        run: |
+          # set header to markdown comment
+          HEADER_INFO='\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n'
+          # set GH output
+          echo "header_info=${HEADER_INFO}" >> $GITHUB_ENV
       - name: Build Deploy Info
         id: deploy-info
         run: |
@@ -48,13 +54,16 @@ jobs:
           DEPLOY_INFO="${PREFIX}${DEPLOY_INFO}"
           # set as GH output
           echo "deploy_info=${DEPLOY_INFO}" >> $GITHUB_ENV
-      - name: Call Update Release Notes
-        id: call-update-release-notes
-        uses: ./.github/workflows/update-release-info-from-tag.yaml
-        with:
-          tag-name: ${{ needs.tag-new-version.outputs.release_tag }}
-          release-body-top: '\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n'
-          release-body-bottom: ${{ steps.deploy-info.outputs.deploy_info }}
+
+  update-release-notes:
+    needs: [ tag-new-version, build-release-notes-update ]
+    if: ${{ needs.tag-new-version.outputs.release_created == 'true'}}
+    uses: ./.github/workflows/update-release-info-from-tag.yaml
+    with:
+      tag-name: ${{ needs.tag-new-version.outputs.release_tag }}
+      release-body-top: ${{ needs.build-release-notes-update.outputs.header_info }}
+      release-body-bottom: '\\\n---\n#### HOW TO DEPLOY\n \`\`\`console\nzarf package deploy zarf package deploy oci://ghcr.io/defenseunicorns/packages/dubbd:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`\n\`\`\`console\nzarf package deploy oci://ghcr.io/defenseunicorns/packages/dubbd-aws:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`console\nzarf package deploy oci://ghcr.io/defenseunicorns/packages/dubbd-k3d:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`\'
+    secrets: inherit
 
   publish-release:
     needs: tag-new-version
