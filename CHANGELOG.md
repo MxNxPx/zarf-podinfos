@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.8](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.7...v0.4.8) (2023-09-15)
+
+
+### Bug Fixes
+
+* update workflow script and comments ([d7e008a](https://github.com/MxNxPx/zarf-podinfos/commit/d7e008ade1f8733ab3a56bd07a811ddfb9115423))
+
 ## [0.4.7](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.6...v0.4.7) (2023-09-15)
 
 
