@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.2](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.1...v0.4.2) (2023-09-15)
+
+
+### Bug Fixes
+
+* update ci things ([4248e97](https://github.com/MxNxPx/zarf-podinfos/commit/4248e9776a58d5b1f28d9bbc95e9aa13bb14b105))
+
 ## [0.4.1](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.0...v0.4.1) (2023-09-15)
 
 
