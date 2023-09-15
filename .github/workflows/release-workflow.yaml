@@ -25,13 +25,34 @@ jobs:
 
   update-release-notes:
     needs: tag-new-version
+    runs-on: ubuntu-latest
     if: ${{ needs.tag-new-version.outputs.release_created == 'true'}}
-    uses: ./.github/workflows/update-release-info-from-tag.yaml
-    with:
-      tag-name: ${{ needs.tag-new-version.outputs.release_tag }}
-      release-body-top: '\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n'
-      release-body-bottom: '\\\n---\n#### HOW TO DEPLOY\n\`\`\`console\nzarf package deploy oci://ghcr.io/mxnxpx/packages/zarf-package-podinfos:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`\n\`\`\`console\nzarf package deploy oci://ghcr.io/mxnxpx/packages/zarf-package-another-podinfos:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`'
-    secrets: inherit
+    outputs:
+      deploy_info: ${{ steps.deploy-info.outputs.deploy_info }}
+    steps:
+      - name: Build Deploy Info
+        id: deploy-info
+        run: |
+          PREFIX='\\\n---\n#### HOW TO DEPLOY\n'
+          # set list of all zarf pkgs
+          PKGS="zarf-package-podinfos \
+                 zarf-package-another-podinfos \
+                 zarf-package-yet-another-podinfos"
+          # loop thru all the zarf pkgs and build regex
+          for pkg in ${PKGS}; do
+            DEPLOY_INFO="${DEPLOY_INFO}\\\`\\\`\\\`console\nzarf package deploy oci://ghcr.io/mxnxpx/packages/$pkg:\${{ needs.tag-new-version.outputs.release_tag }}-amd\n\\\`\\\`\\\`\n"
+          done
+          # add the prefix
+          DEPLOY_INFO="${PREFIX}${DEPLOY_INFO}"
+          # set as GH output
+          echo "deploy_info=${DEPLOY_INFO}" >> $GITHUB_ENV
+      - name: Call Update Release Notes
+        id: call-update-release-notes
+        uses: ./.github/workflows/update-release-info-from-tag.yaml
+        with:
+          tag-name: ${{ needs.tag-new-version.outputs.release_tag }}
+          release-body-top: '\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n'
+          release-body-bottom: ${{ steps.deploy-info.outputs.deploy_info }}
 
   publish-release:
     needs: tag-new-version
