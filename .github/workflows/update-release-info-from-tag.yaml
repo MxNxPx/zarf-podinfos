@@ -26,7 +26,8 @@ on:
 
 jobs:
   update-release-body:
-    permissions: write-all
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
 
     steps:
