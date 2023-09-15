@@ -20,6 +20,11 @@ on:
         default: '\\\n\[\/\/\]: # \(MODIFIED BY WORKFLOW\)'
         # example of adding how to deploy notes prefixed by "\\\n"
         #default: '\\\n---\n#### HOW TO DEPLOY\n\`\`\`console\nzarf package deploy oci://ghcr.io/something\n\`\`\`\n\`\`\`console\nzarf package deploy oci://ghcr.io/something-else\n\`\`\`'
+      mark-release-broken:
+        description: 'Set to "true" if there is an issue with the release'
+        required: true
+        default: 'false'
+
   workflow_call:
     inputs:
       tag-name:
@@ -47,6 +52,11 @@ jobs:
           TAG_NAME="v${{ inputs.tag-name }}"
           ADD_TO_TOP="${{ inputs.release-body-top }}"
           ADD_TO_BOTTOM="${{ inputs.release-body-bottom }}"
+
+          # if release is broken, set default warning message for top of the body
+          if [[ "${{ inputs.mark-release-broken }}" == "true" ]]; then
+             ADD_TO_TOP=">\[!WARNING\]\n>PLEASE USE A NEWER VERSION \(there are known issues with this release\)\\n"
+          fi
 
           # set sed arguments to var
           REGEX_CMD_ARGS="-e '1 i\\${ADD_TO_TOP}' -e '\$a ${ADD_TO_BOTTOM}'"
