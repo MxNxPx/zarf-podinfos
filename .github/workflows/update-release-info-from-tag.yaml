@@ -35,9 +35,9 @@ jobs:
       - name: Modify Release Body
         id: modify-release-body
         run: |
-          TAG_NAME="${{ github.event.inputs.tag-name }}"
-          ADD_TO_TOP="${{ github.event.inputs.release-body-top }}"
-          ADD_TO_BOTTOM="${{ github.event.inputs.release-body-bottom }}"
+          TAG_NAME="${{ inputs.tag-name }}"
+          ADD_TO_TOP="${{ inputs.release-body-top }}"
+          ADD_TO_BOTTOM="${{ inputs.release-body-bottom }}"
           gh release view "v${TAG_NAME}" -R ${{ github.repository }} --json body --jq '.body' > "${TAG_NAME}-release-notes.txt"
           REGEX_CMD_ARGS="-e '1 i\\${ADD_TO_TOP}' -e '\$a ${ADD_TO_BOTTOM}'"
           cat ${TAG_NAME}-release-notes.txt | eval "sed ${REGEX_CMD_ARGS}" > "NEW-${TAG_NAME}-release-notes.txt"
