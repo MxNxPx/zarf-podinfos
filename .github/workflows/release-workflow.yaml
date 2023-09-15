@@ -37,7 +37,7 @@ jobs:
           # set header to markdown comment
           HEADER_INFO='\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n'
           # set GH output
-          echo "header_info=${HEADER_INFO}" >> $GITHUB_ENV
+          echo "header_info=${HEADER_INFO}" >> $GITHUB_OUTPUT
       - name: Build Deploy Info
         id: deploy-info
         run: |
@@ -53,7 +53,7 @@ jobs:
           # add the prefix
           DEPLOY_INFO="${PREFIX}${DEPLOY_INFO}"
           # set as GH output
-          echo "deploy_info=${DEPLOY_INFO}" >> $GITHUB_ENV
+          echo "deploy_info=${DEPLOY_INFO}" >> $GITHUB_OUTPUT
 
   update-release-notes:
     needs: [ tag-new-version, build-release-notes-update ]
