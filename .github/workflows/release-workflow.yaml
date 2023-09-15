@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release-flag.outputs.release_created }}
+      release_tag: ${{ steps.release-tag.outputs.tag_name }}
     steps:
       - name: Create Release Tag
         id: tag
@@ -19,12 +20,25 @@ jobs:
           command: manifest # use configs in release-please-config.json
       - id: release-flag
         run: echo "release_created=${{ steps.tag.outputs.release_created || false }}" >> $GITHUB_OUTPUT 
+      - id: release-tag
+        run: echo "release_tag=${{ steps.tag.outputs.tag_name || false }}" >> $GITHUB_OUTPUT 
+
+  update-release-notes:
+    needs: publish-release
+    if: ${{ needs.tag-new-version.outputs.release_created == 'true'}}
+    steps:
+    uses: ./.github/workflows/update-release-info-from-tag.yaml
+    secrets: inherit
+    with:
+      tag-name: ${{ steps.release-tag.outputs.tag_name }}
+      release-body-top: "\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n"
+      release-body-bottom: "\\\n### OCI\n\`\`\`console\nzarf package deploy oci://ghcr.io/mxnxpx/packages/zarf-package-podinfos:${{ steps.release-tag.outputs.tag_name }}-amd\n\`\`\`'"
 
   publish-release:
     needs: tag-new-version
     runs-on: ubuntu-latest
     if: ${{ needs.tag-new-version.outputs.release_created == 'true'}}
     steps:
-      - name: Create Release Tag
+      - name: Publish Release Artifact
         id: echo-release
-        run: echo "RELEASE WILL BE CREATED AT THIS POINT"
+        run: echo "RELEASE ARTIFACT WILL BE CREATED AT THIS POINT"
