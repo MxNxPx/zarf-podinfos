@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.9](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.8...v0.4.9) (2023-09-15)
+
+
+### Features
+
+* update default values in workflow & examples ([87238ab](https://github.com/MxNxPx/zarf-podinfos/commit/87238ab19dcb30db14b3581aae4026f013f8b1c1))
+
 ## [0.4.8](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.7...v0.4.8) (2023-09-15)
 
 
