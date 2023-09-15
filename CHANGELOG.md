@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.5](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.4...v0.4.5) (2023-09-15)
+
+
+### Bug Fixes
+
+* update dep job input refs ([855544a](https://github.com/MxNxPx/zarf-podinfos/commit/855544a5f2a4ed6f3ac4d49f27e841c3f416a689))
+
 ## [0.4.4](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.3...v0.4.4) (2023-09-15)
 
 
