@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.14](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.13...v0.4.14) (2023-09-15)
+
+
+### Bug Fixes
+
+* ci typo for vars fixed ([8c66d05](https://github.com/MxNxPx/zarf-podinfos/commit/8c66d05cfb1743679c8367bc6f49c056a0f80e37))
+
 ## [0.4.13](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.12...v0.4.13) (2023-09-15)
 
 
