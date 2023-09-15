@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.3](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.2...v0.4.3) (2023-09-15)
+
+
+### Bug Fixes
+
+* reference version instead of tag_name ([d0b2a60](https://github.com/MxNxPx/zarf-podinfos/commit/d0b2a60f32948c5e995c5715e5366ee9e9c56e5e))
+
 ## [0.4.2](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.1...v0.4.2) (2023-09-15)
 
 
