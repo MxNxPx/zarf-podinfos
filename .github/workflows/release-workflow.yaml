@@ -30,6 +30,8 @@ jobs:
     outputs:
       deploy_info: ${{ steps.deploy-info.outputs.deploy_info }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
       - name: Build Deploy Info
         id: deploy-info
         run: |
