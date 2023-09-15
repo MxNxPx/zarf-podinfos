@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.6](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.5...v0.4.6) (2023-09-15)
+
+
+### Features
+
+* dispatch and manual call for workflow ([b8aab16](https://github.com/MxNxPx/zarf-podinfos/commit/b8aab167589578e9341e540b2f65609f37cdc861))
+
 ## [0.4.5](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.4...v0.4.5) (2023-09-15)
 
 
