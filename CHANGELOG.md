@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.13](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.12...v0.4.13) (2023-09-15)
+
+
+### Bug Fixes
+
+* update hard-coded ci value to var ([3a99a83](https://github.com/MxNxPx/zarf-podinfos/commit/3a99a8308c7edd424f6b1ff49323877272981b0d))
+
 ## [0.4.12](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.11...v0.4.12) (2023-09-15)
 
 
