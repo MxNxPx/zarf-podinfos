@@ -12,14 +12,14 @@ on:
         # this is a github comment followed by "\\n"
         default: '\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n'
         # example of adding a warning followed by "\\n"
-        #default: '>\[!WARNING\]\n>KNOWN ISSUES WITH THIS RELEASE, PLEASE USE A NEWER VERSION\\n'
+        #default: '>\[!WARNING\]\n>PLEASE USE A NEWER VERSION \(there are known issues with this release\)\\n'
       release-body-bottom:
         description: 'Content to add to the bottom of the release body'
         required: true
         # this is a github comment prefixed by "\\\n"
         default: '\\\n\[\/\/\]: # \(MODIFIED BY WORKFLOW\)'
         # example of adding how to deploy notes prefixed by "\\\n"
-        #default: '\\\n---\n#### HOW TO DEPLOY\n\`\`\`console\nzarf package deploy oci://ghcr.io/something\n\`\`\`'
+        #default: '\\\n---\n#### HOW TO DEPLOY\n\`\`\`console\nzarf package deploy oci://ghcr.io/something\n\`\`\`\n\`\`\`console\nzarf package deploy oci://ghcr.io/something-else\n\`\`\`'
   workflow_call:
     inputs:
       tag-name:

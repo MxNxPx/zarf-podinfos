@@ -30,7 +30,7 @@ jobs:
     with:
       tag-name: ${{ needs.tag-new-version.outputs.release_tag }}
       release-body-top: '\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n'
-      release-body-bottom: '\\\n---\n#### HOW TO DEPLOY\n\`\`\`console\nzarf package deploy oci://ghcr.io/mxnxpx/packages/zarf-package-podinfos:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`'
+      release-body-bottom: '\\\n---\n#### HOW TO DEPLOY\n\`\`\`console\nzarf package deploy oci://ghcr.io/mxnxpx/packages/zarf-package-podinfos:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`\n\`\`\`console\nzarf package deploy oci://ghcr.io/mxnxpx/packages/zarf-package-another-podinfos:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`'
     secrets: inherit
 
   publish-release:
