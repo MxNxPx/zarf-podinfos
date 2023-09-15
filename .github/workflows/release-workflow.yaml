@@ -62,7 +62,7 @@ jobs:
     with:
       tag-name: ${{ needs.tag-new-version.outputs.release_tag }}
       release-body-top: ${{ needs.build-release-notes-update.outputs.header_info }}
-      release-body-bottom: '\\\n---\n#### HOW TO DEPLOY\n \`\`\`console\nzarf package deploy zarf package deploy oci://ghcr.io/defenseunicorns/packages/dubbd:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`\n\`\`\`console\nzarf package deploy oci://ghcr.io/defenseunicorns/packages/dubbd-aws:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`console\nzarf package deploy oci://ghcr.io/defenseunicorns/packages/dubbd-k3d:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`\'
+      release-body-bottom: ${{ needs.build-release-notes-update.outputs.deploy_info }}
     secrets: inherit
 
   publish-release:
