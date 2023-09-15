@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.12](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.11...v0.4.12) (2023-09-15)
+
+
+### Features
+
+* break out the ci rel update step ([de3adc1](https://github.com/MxNxPx/zarf-podinfos/commit/de3adc1625579faa21e55999b00db90710b5e4db))
+
 ## [0.4.11](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.10...v0.4.11) (2023-09-15)
 
 
