@@ -21,7 +21,7 @@ jobs:
       - id: release-flag
         run: echo "release_created=${{ steps.tag.outputs.release_created || false }}" >> $GITHUB_OUTPUT 
       - id: release-tag
-        run: echo "release_tag=${{ steps.tag.outputs.tag_name || false }}" >> $GITHUB_OUTPUT 
+        run: echo "release_tag=${{ steps.tag.outputs.version || false }}" >> $GITHUB_OUTPUT 
 
   update-release-notes:
     needs: tag-new-version
