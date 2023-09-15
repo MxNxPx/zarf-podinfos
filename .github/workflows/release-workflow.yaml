@@ -35,8 +35,8 @@ jobs:
 
   publish-release:
     needs: tag-new-version
-    runs-on: ubuntu-latest
     if: ${{ needs.tag-new-version.outputs.release_created == 'true'}}
+    runs-on: ubuntu-latest
     steps:
       - name: Publish Release Artifact
         id: echo-release
