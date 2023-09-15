@@ -24,15 +24,14 @@ jobs:
         run: echo "release_tag=${{ steps.tag.outputs.tag_name || false }}" >> $GITHUB_OUTPUT 
 
   update-release-notes:
-    needs: publish-release
+    needs: tag-new-version
     if: ${{ needs.tag-new-version.outputs.release_created == 'true'}}
-    steps:
     uses: ./.github/workflows/update-release-info-from-tag.yaml
-    secrets: inherit
     with:
-      tag-name: ${{ steps.release-tag.outputs.tag_name }}
-      release-body-top: "\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n"
-      release-body-bottom: "\\\n### OCI\n\`\`\`console\nzarf package deploy oci://ghcr.io/mxnxpx/packages/zarf-package-podinfos:${{ steps.release-tag.outputs.tag_name }}-amd\n\`\`\`'"
+      tag-name: ${{ needs.tag-new-version.outputs.release_tag }}
+      release-body-top: '\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n'
+      release-body-bottom: '\\\n### OCI\n\`\`\`console\nzarf package deploy oci://ghcr.io/mxnxpx/packages/zarf-package-podinfos:${{ needs.tag-new-version.outputs.release_tag }}-amd\n\`\`\`'
+    secrets: inherit
 
   publish-release:
     needs: tag-new-version

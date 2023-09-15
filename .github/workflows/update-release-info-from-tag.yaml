@@ -1,16 +1,3 @@
-#inputs:
-#  github-token:
-#    description: GitHub token to authenticate to the GitHub REST API
-#    required: true
-#  tag-name:
-#    description: 'GitHub tag name (ex: v0.3.0)'
-#    required: true
-#
-#outputs:
-#  latest-package-version:
-#    description: Github release ID
-#    value: ${{ steps.get-release-id.outputs.release-id }}
-
 name: update-release-info-from-tag
 
 on:
@@ -25,6 +12,15 @@ on:
       release-body-bottom:
         description: 'Content to add to the bottom of the release body'
         default: '\\\n### OCI\n\`\`\`console\nzarf package deploy oci://ghcr.io/something\n\`\`\`'
+  workflow_call:
+    inputs:
+      tag-name:
+        required: true
+        type: string
+      release-body-top:
+        type: string
+      release-body-bottom:
+        type: string
 
 jobs:
   update-release-body:
