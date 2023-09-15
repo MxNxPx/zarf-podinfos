@@ -8,10 +8,12 @@ on:
         required: true
       release-body-top:
         description: 'Content to add to the top of the release body'
+        required: true
         default: '\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n'
       release-body-bottom:
         description: 'Content to add to the bottom of the release body'
-        default: '\\\n### OCI\n\`\`\`console\nzarf package deploy oci://ghcr.io/something\n\`\`\`'
+        required: true
+        default: '\\\n---\n#### HOW TO DEPLOY\n\`\`\`console\nzarf package deploy oci://ghcr.io/something\n\`\`\`'
   workflow_call:
     inputs:
       tag-name:
