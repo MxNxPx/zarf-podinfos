@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.11](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.10...v0.4.11) (2023-09-15)
+
+
+### Features
+
+* add checkout code to ci ([4bd3d6c](https://github.com/MxNxPx/zarf-podinfos/commit/4bd3d6c02a0eb412e8cbdb5afe23b0f2cc1552a8))
+
 ## [0.4.10](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.9...v0.4.10) (2023-09-15)
 
 
