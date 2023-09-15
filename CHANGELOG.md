@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.4.1](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.0...v0.4.1) (2023-09-15)
+
+
+### Features
+
+* add some hidden files to rel plz ([92dcfa5](https://github.com/MxNxPx/zarf-podinfos/commit/92dcfa5433088a778b94174cbc7df772f2f1a030))
+* adding another file ([#98](https://github.com/MxNxPx/zarf-podinfos/issues/98)) ([a80e5fc](https://github.com/MxNxPx/zarf-podinfos/commit/a80e5fc63d0f24a1587d6139af272eea3264d6b9))
+* changing to use yaml ([71e6375](https://github.com/MxNxPx/zarf-podinfos/commit/71e637569ca3d01b6737d627a2a5ca37c499d681))
+* move files in gha for rel plz ([485d05d](https://github.com/MxNxPx/zarf-podinfos/commit/485d05da4144acd21d801603701e97adffe1a6c6))
+
+
+### Bug Fixes
+
+* removing gha file that breaks rel-plz ([d8e71a8](https://github.com/MxNxPx/zarf-podinfos/commit/d8e71a8912b1be3894b7c8219c0f783e5289ffac))
+* revert rel-plz config ([60ec722](https://github.com/MxNxPx/zarf-podinfos/commit/60ec72284812e89b7ccc20b98300e9142c559b79))
+* try using a symlink ([c9e018d](https://github.com/MxNxPx/zarf-podinfos/commit/c9e018de9b9984be34d22b3537e7bc5c68a0b907))
+* Update README.md ([#96](https://github.com/MxNxPx/zarf-podinfos/issues/96)) ([51c7e31](https://github.com/MxNxPx/zarf-podinfos/commit/51c7e31a0a0187c3c6149612ccf222dd61415074))
+
 ## [0.4.0](https://github.com/MxNxPx/zarf-podinfos/compare/v0.3.0...v0.4.0) (2023-07-06)
 
 
