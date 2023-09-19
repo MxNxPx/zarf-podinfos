@@ -9,21 +9,15 @@ on:
       release-body-top:
         description: 'Content to add to the top of the release body'
         required: true
-        # this is a github comment followed by "\\n"
-        default: '\[\/\/\]: # \(MODIFIED BY WORKFLOW\)\\n'
-        # example of adding a warning followed by "\\n"
-        #default: '>\[!WARNING\]\n>PLEASE USE A NEWER VERSION \(there are known issues with this release\)\\n'
+        default: ''
       release-body-bottom:
         description: 'Content to add to the bottom of the release body'
         required: true
-        # this is a github comment prefixed by "\\\n"
-        default: '\\\n\[\/\/\]: # \(MODIFIED BY WORKFLOW\)'
-        # example of adding how to deploy notes prefixed by "\\\n"
-        #default: '\\\n---\n#### HOW TO DEPLOY\n\`\`\`console\nzarf package deploy oci://ghcr.io/something\n\`\`\`\n\`\`\`console\nzarf package deploy oci://ghcr.io/something-else\n\`\`\`'
+        default: ''
       mark-release-broken:
         description: 'Set to "true" if there is an issue with the release'
+        type: boolean
         required: true
-        default: 'false'
 
   workflow_call:
     inputs:
@@ -55,17 +49,18 @@ jobs:
 
           # if release is broken, set default warning message for top of the body
           if [[ "${{ inputs.mark-release-broken }}" == "true" ]]; then
-             ADD_TO_TOP=">\[!WARNING\]\n>PLEASE USE A NEWER VERSION \(there are known issues with this release\)\\n"
+             ADD_TO_TOP=">[!WARNING]\n>PLEASE USE A NEWER VERSION (there are known issues with this release)"
           fi
 
-          # set sed arguments to var
-          REGEX_CMD_ARGS="-e '1 i\\${ADD_TO_TOP}' -e '\$a ${ADD_TO_BOTTOM}'"
+          # put outputs in files
+          echo -e "${ADD_TO_TOP}" > "${TAG_NAME}-release-notes-top.txt" && \
+          echo -e "${ADD_TO_BOTTOM}" > "${TAG_NAME}-release-notes-bottom.txt" && \
 
           # get body for release and output to file
           gh release view "${TAG_NAME}" -R ${{ github.repository }} --json body --jq '.body' > "${TAG_NAME}-release-notes.txt" && \
  
           # update file with inputs 
-          cat ${TAG_NAME}-release-notes.txt | eval "sed ${REGEX_CMD_ARGS}" > "NEW-${TAG_NAME}-release-notes.txt" && \
+          cat "${TAG_NAME}-release-notes-top.txt" <(echo) "${TAG_NAME}-release-notes.txt" <(echo) "${TAG_NAME}-release-notes-bottom.txt" > "NEW-${TAG_NAME}-release-notes.txt" && \
 
           # replace release notes with contents of the file
           gh release edit "${TAG_NAME}" -R ${{ github.repository }} --notes-file "NEW-${TAG_NAME}-release-notes.txt"
