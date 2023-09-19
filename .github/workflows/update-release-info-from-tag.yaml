@@ -42,7 +42,7 @@ jobs:
       - name: Modify Release Body
         id: modify-release-body
         run: |
-          # set inputs to vars
+          # set tag name
           TAG_NAME="v${{ inputs.tag-name }}"
           ADD_TO_TOP="${{ inputs.release-body-top }}"
           ADD_TO_BOTTOM="${{ inputs.release-body-bottom }}"
@@ -53,14 +53,15 @@ jobs:
           fi
 
           # put outputs in files
-          echo -e "${ADD_TO_TOP}" > "${TAG_NAME}-release-notes-top.txt" && \
-          echo -e "${ADD_TO_BOTTOM}" > "${TAG_NAME}-release-notes-bottom.txt" && \
+          #echo ${ADD_TO_TOP} > "${TAG_NAME}-release-notes-top.txt" && \
+          #echo ${ADD_TO_BOTTOM} > "${TAG_NAME}-release-notes-bottom.txt" && \
 
           # get body for release and output to file
           gh release view "${TAG_NAME}" -R ${{ github.repository }} --json body --jq '.body' > "${TAG_NAME}-release-notes.txt" && \
  
           # update file with inputs 
-          cat "${TAG_NAME}-release-notes-top.txt" <(echo) "${TAG_NAME}-release-notes.txt" <(echo) "${TAG_NAME}-release-notes-bottom.txt" > "NEW-${TAG_NAME}-release-notes.txt" && \
+          #cat <(echo "${TAG_NAME}-release-notes-top.txt") <(echo "\n") <(echo "${TAG_NAME}-release-notes.txt") <(echo) "${TAG_NAME}-release-notes-bottom.txt" > "NEW-${TAG_NAME}-release-notes.txt" && \
+          cat <(echo -e "${ADD_TO_TOP}") <(echo) "${TAG_NAME}-release-notes.txt" <(echo) <(echo -e "${ADD_TO_BOTTOM}") > "NEW-${TAG_NAME}-release-notes.txt" && \
 
           # replace release notes with contents of the file
           gh release edit "${TAG_NAME}" -R ${{ github.repository }} --notes-file "NEW-${TAG_NAME}-release-notes.txt"
