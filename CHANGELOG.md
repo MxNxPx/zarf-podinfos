@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.15](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.14...v0.4.15) (2023-09-19)
+
+
+### Features
+
+* make workflow simpler ([e4cd7a3](https://github.com/MxNxPx/zarf-podinfos/commit/e4cd7a361bfdd5d934ce084ee52d5efe807c7b60))
+
 ## [0.4.14](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.13...v0.4.14) (2023-09-15)
 
 
