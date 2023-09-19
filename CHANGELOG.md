@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.20](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.19...v0.4.20) (2023-09-19)
+
+
+### Bug Fixes
+
+* diff workflow issue ([6b62af0](https://github.com/MxNxPx/zarf-podinfos/commit/6b62af0f531ab51469943f32c437d562d1bcefcd))
+
 ## [0.4.19](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.18...v0.4.19) (2023-09-19)
 
 
