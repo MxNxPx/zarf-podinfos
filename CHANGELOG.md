@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.16](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.15...v0.4.16) (2023-09-19)
+
+
+### Bug Fixes
+
+* broken workflow for updating rel msg ([e7e62a9](https://github.com/MxNxPx/zarf-podinfos/commit/e7e62a9bfddea94b3b974107088865031a995776))
+
 ## [0.4.15](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.14...v0.4.15) (2023-09-19)
 
 
