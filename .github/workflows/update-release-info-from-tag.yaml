@@ -8,12 +8,10 @@ on:
         required: true
       release-body-top:
         description: 'Content to add to the top of the release body'
-        required: true
-        default: ''
+        default: '[//]: # (MODIFIED BY WORKFLOW)'
       release-body-bottom:
         description: 'Content to add to the bottom of the release body'
-        required: true
-        default: ''
+        default: '[//]: # (MODIFIED BY WORKFLOW)'
       mark-release-broken:
         description: 'Select this option if there is an issue with the release'
         type: boolean
