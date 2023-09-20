@@ -42,8 +42,8 @@ jobs:
         run: |
           # set tag name
           TAG_NAME="v${{ inputs.tag-name }}"
-          ADD_TO_TOP="$(echo '${{ inputs.release-body-top }}')"
-          ADD_TO_BOTTOM="$(echo '${{ inputs.release-body-bottom }}')"
+          ADD_TO_TOP='${{ inputs.release-body-top }}'
+          ADD_TO_BOTTOM='${{ inputs.release-body-bottom }}'
 
           # if release is broken, set default warning message for top of the body
           if [[ "${{ inputs.mark-release-broken }}" == "true" ]]; then
