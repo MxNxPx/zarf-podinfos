@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.21](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.20...v0.4.21) (2023-09-20)
+
+
+### Bug Fixes
+
+* less complex setting of vars ([af9fcf1](https://github.com/MxNxPx/zarf-podinfos/commit/af9fcf1b5dd792b83265f5a989e01d3a6b7d30a6))
+* options should be optional ([6375c57](https://github.com/MxNxPx/zarf-podinfos/commit/6375c576b701c5a0e225f7fd6a99496797faaeac))
+
 ## [0.4.20](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.19...v0.4.20) (2023-09-19)
 
 
