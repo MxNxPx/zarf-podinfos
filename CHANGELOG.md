@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.4.22](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.21...v0.4.22) (2023-09-20)
+
+
+### Features
+
+* more nocode ([8cec01e](https://github.com/MxNxPx/zarf-podinfos/commit/8cec01e3f4e254587bb328f9266f21a9cbbfa64a))
+* nocode ([13c432d](https://github.com/MxNxPx/zarf-podinfos/commit/13c432dea099bbd73f5e1004f71e34e4e0f32b6f))
+
 ## [0.4.21](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.20...v0.4.21) (2023-09-20)
 
 
