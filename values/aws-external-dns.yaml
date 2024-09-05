@@ -1,6 +1,6 @@
 image:
   repository: registry1.dso.mil/ironbank/external-dns
-  tag: "v0.13.4"
+  tag: "v0.15.0"
   pullPolicy: IfNotPresent
 
 sources:
