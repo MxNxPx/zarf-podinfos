@@ -3,7 +3,7 @@ metadata:
   name: podinfos
   description: "Podinfos zarf package"
   # x-release-please-start-version
-  version: "0.4.24"
+  version: "0.4.25"
   # x-release-please-end
   url: https://github.com/stefanprodan/podinfo
   image: https://raw.githubusercontent.com/stefanprodan/podinfo/gh-pages/screens/podinfo-ui-v3.png
