@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.23](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.22...v0.4.23) (2024-10-25)
+
+
+### Bug Fixes
+
+* get ci working for sbom ([d9a3bbd](https://github.com/MxNxPx/zarf-podinfos/commit/d9a3bbdb472ea047674e52836e1647f361734cc7))
+
 ## [0.4.22](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.21...v0.4.22) (2024-10-25)
 
 
