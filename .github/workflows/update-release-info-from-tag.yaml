@@ -28,7 +28,7 @@ on:
         type: string
 
 jobs:
-  update-release-body:
+  update-release:
     permissions:
       contents: write
     runs-on: ubuntu-latest
@@ -61,12 +61,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  update-release-assets:
-    permissions:
-      contents: write
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Upload SBOM to Release
         id: upload-sbom-to-release
         env:
