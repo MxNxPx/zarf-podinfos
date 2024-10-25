@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.24](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.23...v0.4.24) (2024-10-25)
+
+
+### Bug Fixes
+
+* correct the pattern for grabbing sboms ([65a8a76](https://github.com/MxNxPx/zarf-podinfos/commit/65a8a7663a91bd844513268f0057e5710dc06428))
+
 ## [0.4.23](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.22...v0.4.23) (2024-10-25)
 
 
