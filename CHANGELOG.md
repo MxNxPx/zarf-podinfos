@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.25](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.24...v0.4.25) (2024-10-25)
+
+
+### Bug Fixes
+
+* update ci to change release in one swoop ([6cacb88](https://github.com/MxNxPx/zarf-podinfos/commit/6cacb889474b4622510426d41d5544919c0376c0))
+
 ## [0.4.24](https://github.com/MxNxPx/zarf-podinfos/compare/v0.4.23...v0.4.24) (2024-10-25)
 
 
