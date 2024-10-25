@@ -69,6 +69,8 @@ jobs:
     steps:
       - name: Upload SBOM to Release
         id: upload-sbom-to-release
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           TAG_NAME="v${{ inputs.tag-name }}"
           gh release upload "${TAG_NAME}" *-sboms.tar
