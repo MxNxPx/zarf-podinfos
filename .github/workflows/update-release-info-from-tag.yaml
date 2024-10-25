@@ -73,4 +73,4 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           TAG_NAME="v${{ inputs.tag-name }}"
-          gh release upload "${TAG_NAME}" *-sboms.tar
+          gh release upload "${TAG_NAME}" "$(ls -w 10000 -C *-sboms.tar | head)"
