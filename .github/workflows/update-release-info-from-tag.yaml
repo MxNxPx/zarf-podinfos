@@ -60,3 +60,15 @@ jobs:
           gh release edit "${TAG_NAME}" -R ${{ github.repository }} --notes-file "NEW-${TAG_NAME}-release-notes.txt"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  update-release-assets:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Upload SBOM to Release
+        id: upload-sbom-to-release
+        run: |
+          TAG_NAME="v${{ inputs.tag-name }}"
+          gh release upload "${TAG_NAME}" *-sboms.tar
